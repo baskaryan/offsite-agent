@@ -1,0 +1,4 @@
+claude-agent-sdk
+langsmith[claude-agent-sdk]
+python-dotenv
+tavily-python
