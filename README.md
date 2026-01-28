@@ -39,13 +39,24 @@ Built with Claude Agent SDK, Tavily Search, and LangSmith tracing.
 
 4. **Run the agent:**
    ```bash
-   python main.py
+   python main.py              # Uses inputs.json by default
+   python main.py custom.json  # Or specify a custom input file
    ```
 
 ## Usage
 
-Once running, you can ask the agent things like:
+The agent runs in batch mode, processing queries from a JSON file.
 
+**Input format** (`inputs.json`):
+```json
+[
+  "Plan a weekend trip to Portland, Oregon",
+  "Find me the best Italian restaurants in Rome",
+  "What are the top things to do in Tokyo?"
+]
+```
+
+**Example queries:**
 - "I want to plan a weekend trip to Portland, Oregon"
 - "Find me the best Italian restaurants in Rome"
 - "What are the top things to do in Tokyo?"
@@ -53,7 +64,7 @@ Once running, you can ask the agent things like:
 - "What's the best time to visit Iceland?"
 - "Give me safety tips for traveling to Colombia"
 
-The agent will search for current information and provide comprehensive recommendations.
+Results are saved to `inputs_results.json` (or `<input_file>_results.json`).
 
 ## LangSmith Tracing
 
