@@ -39,13 +39,25 @@ Built with Claude Agent SDK, Tavily Search, and LangSmith tracing.
 
 4. **Run the agent:**
    ```bash
-   python main.py              # Uses inputs.json by default
-   python main.py custom.json  # Or specify a custom input file
+   python main.py                          # Uses inputs.json by default
+   python main.py custom.json              # Or specify a custom input file
+   python main.py --parallel 5             # Run 5 queries in parallel
+   python main.py --start 10 --end 20      # Process only inputs 10-19
    ```
 
 ## Usage
 
 The agent runs in batch mode, processing queries from a JSON file.
+
+**CLI options:**
+```
+python main.py [input_file] [options]
+
+Options:
+  --start N      Start index, 0-based (default: 0)
+  --end N        End index, exclusive (default: all)
+  --parallel N   Number of parallel requests (default: 1)
+```
 
 **Input format** (`inputs.json`):
 ```json
@@ -64,7 +76,7 @@ The agent runs in batch mode, processing queries from a JSON file.
 - "What's the best time to visit Iceland?"
 - "Give me safety tips for traveling to Colombia"
 
-Results are saved to `inputs_results.json` (or `<input_file>_results.json`).
+Results are saved to `<input_file>_results_<start>_<end>.json`.
 
 ## LangSmith Tracing
 
